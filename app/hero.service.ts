@@ -8,4 +8,7 @@ export class HeroService {
   getHeroes() {
     return Promise.resolve(HEROES);  // Promise, to avoid synchronous service.
   }
+  getHero(id: number) {
+    return this.getHeroes()
+                 .then(heroes => heroes.find(hero => hero.id === id));  }
 }
